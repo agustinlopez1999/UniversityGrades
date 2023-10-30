@@ -46,4 +46,11 @@ contract grades{
         return studentGrade;
     }
 
+    //Receive id from the Student who wants revision
+    function AskRevision(string memory _idStudent) public{
+        require(Grades[getHashStudent(_idStudent)]!=0,"Student doesn't exists");
+        revisions.push(_idStudent);
+        emit ask_revision(_idStudent);
+    }
+
 }
