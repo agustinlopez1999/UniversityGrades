@@ -12,7 +12,7 @@ contract grades{
     }
 
     //Relate hash with grades
-    mapping(bytes32 => uint) Grades;
+    mapping(bytes32 => uint8) Grades;
 
     //Array from students that ask for revision
     string[] revisions;
