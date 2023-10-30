@@ -41,6 +41,7 @@ contract grades{
     //Receive id, returns grade
     function CheckGrades(string memory _idStudent) public view returns(uint8){
         bytes32 hash_idStudent = getHashStudent(_idStudent);
+        require(Grades[hash_idStudent]!=0,"Student doesn't exists");
         uint8 studentGrade = Grades[hash_idStudent];
         return studentGrade;
     }
