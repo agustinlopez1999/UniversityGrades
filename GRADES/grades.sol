@@ -3,7 +3,7 @@ pragma solidity >=0.8.0;
 
 contract grades{
 
-    //Professor address
+    //Returns professor address
     address public professor;
 
     //Professor address is contract deployer adress
@@ -18,7 +18,7 @@ contract grades{
     string[] revisions;
 
     //Events
-    event student_evaluated(bytes32);
+    event student_evaluated(bytes32,uint8);
     event ask_revision(string);
 
     //checks if professor equals to sender
@@ -28,10 +28,10 @@ contract grades{
     }
 
     //assign the grade to the student
-    function Evaluate(string memory _idStudent, uint _grade) public OnlyProfessor(msg.sender){
+    function Evaluate(string memory _idStudent, uint8 _grade) public OnlyProfessor(msg.sender){
         bytes32 hash_idStudent = keccak256(abi.encodePacked(_idStudent));
         Grades[hash_idStudent] = _grade;
-        emit student_evaluated(hash_idStudent);
+        emit student_evaluated(hash_idStudent,_grade);
     }
 
 }
