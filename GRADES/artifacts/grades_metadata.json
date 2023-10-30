@@ -147,11 +147,11 @@
 	},
 	"sources": {
 		"GRADES/grades.sol": {
-			"keccak256": "0x6ebcd1307502649519a987dc4255c58660d975a25580360e969443a5a0edcb3d",
+			"keccak256": "0x39f0b213ea15923edb4fe0a11ab5c29e1133ddfca7e202950b20c326fc2adbfc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://50bbaadaac20ebec9b6f83380473b94ea806f78329571b2ab1f0276ef0be0cbe",
-				"dweb:/ipfs/QmaMVtyDTWnEENDSkBbdLcYnqmiZiDaKuXVuGd9vM71Ve3"
+				"bzz-raw://8dbdb23f7b69ff9f92df9ddd8d58691e7749c8b41edae74a1b8787bd1c85d6ef",
+				"dweb:/ipfs/QmbpnEnhXgDXHsy9mSWRBanXGdX4xdXrvNXQmUZtogn69x"
 			]
 		}
 	},

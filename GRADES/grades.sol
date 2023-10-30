@@ -66,7 +66,7 @@ contract grades{
         emit ask_revision(_idStudent);
     }
 
-    function ShowAskedRevisions() external view returns(string[] memory){
+    function ShowAskedRevisions() external view OnlyProfessor(msg.sender) returns(string[] memory){
         return revisions;
     }
 
