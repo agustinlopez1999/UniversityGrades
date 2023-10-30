@@ -21,17 +21,28 @@ contract grades{
     event student_evaluated(bytes32,uint8);
     event ask_revision(string);
 
-    //checks if professor equals to sender
+    //Checks if professor equals to sender
     modifier OnlyProfessor(address _sender){
-        require(professor == _sender,"Only professor can use this Function");
+        require(professor == _sender,"You don't have permissions.");
         _;
     }
 
-    //assign the grade to the student
+    function getHashStudent(string memory _idStudent) private pure returns(bytes32){
+        return keccak256(abi.encodePacked(_idStudent));
+    }
+
+    //Assign the grade to the student
     function Evaluate(string memory _idStudent, uint8 _grade) public OnlyProfessor(msg.sender){
-        bytes32 hash_idStudent = keccak256(abi.encodePacked(_idStudent));
+        bytes32 hash_idStudent = getHashStudent(_idStudent);
         Grades[hash_idStudent] = _grade;
         emit student_evaluated(hash_idStudent,_grade);
+    }
+
+    //Receive id, returns grade
+    function CheckGrades(string memory _idStudent) public view returns(uint8){
+        bytes32 hash_idStudent = getHashStudent(_idStudent);
+        uint8 studentGrade = Grades[hash_idStudent];
+        return studentGrade;
     }
 
 }
